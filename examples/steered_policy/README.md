@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # Steered policy — hover, then hand over to the VLA
 
 > **What:** Hybrid graphs: perceive + hover above the target, then hand control to a VLA policy · **Needs:** `quickstart` + `policy` + LLM key · **Time:** ~min/trial

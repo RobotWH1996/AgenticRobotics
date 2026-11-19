@@ -1568,9 +1568,9 @@ requires-dist = [
     { name = "networkx", specifier = ">=3" },
     { name = "numpy", specifier = ">=1.26" },
     { name = "nvidia-curobo", git = "https://github.com/NVlabs/curobo.git?rev=4ea77366ca48ee453e7df139e39fa6532af49f3b" },
-    { name = "open-robot-skills", extras = ["all"], marker = "extra == 'all'", editable = "../open-robot-skills" },
-    { name = "open-robot-skills", extras = ["grocery"], marker = "extra == 'grocery'", editable = "../open-robot-skills" },
-    { name = "open-robot-skills", extras = ["quickstart"], marker = "extra == 'quickstart'", editable = "../open-robot-skills" },
+    { name = "open-robot-skills", extras = ["all"], marker = "extra == 'all'", editable = "open-robot-skills" },
+    { name = "open-robot-skills", extras = ["grocery"], marker = "extra == 'grocery'", editable = "open-robot-skills" },
+    { name = "open-robot-skills", extras = ["quickstart"], marker = "extra == 'quickstart'", editable = "open-robot-skills" },
     { name = "opencv-python-headless", specifier = ">=4.9" },
     { name = "openpi-client", marker = "extra == 'policy'", git = "https://github.com/Physical-Intelligence/openpi.git?subdirectory=packages%2Fopenpi-client" },
     { name = "pillow", specifier = ">=10" },
@@ -3936,7 +3936,7 @@ wheels = [
 [[package]]
 name = "open-robot-skills"
 version = "0.1.0.dev0"
-source = { editable = "../open-robot-skills" }
+source = { editable = "open-robot-skills" }
 dependencies = [
     { name = "graph-as-policy" },
 ]

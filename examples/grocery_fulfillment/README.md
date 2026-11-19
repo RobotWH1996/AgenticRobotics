@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # grocery_fulfillment — the acceptance benchmark
 
 > **What:** The flagship acceptance family: graphs LLM-generated per task, nothing hand-written · **Needs:** `grocery` (CUDA) + LLM key · **Time:** minutes (smoke)

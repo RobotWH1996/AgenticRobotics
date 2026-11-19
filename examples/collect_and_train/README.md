@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # Collect demonstrations → train a policy → run it in a graph
 
 > **What:** Graph as scripted expert → HDF5/LeRobot dataset → train externally → policy back in a graph · **Needs:** `quickstart` + `policy` + LLM key · **Time:** collection: s/episode

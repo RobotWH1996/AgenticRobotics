@@ -21,3 +21,11 @@ node_modules/
 curobo_debug/
 .llm_cache/
 node_data/
+
+# Machine-local credentials, launch profile and large model weights.
+/deepseek.yaml
+/gap-deepseek
+/sam3checkpoint/
+/.env
+/.env.*
+!/.env.example

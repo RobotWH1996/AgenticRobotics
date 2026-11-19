@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # Drive GaP with an AI coding agent (Claude Code)
 
 The step-by-step loop this example documents was run for real — every

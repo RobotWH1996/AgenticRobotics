@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # build_a_graph — author a workflow in Python with `gap.builder`
 
 > **What:** The full authoring example: checkpoints, recovery, `--execute` · **Needs:** `uv sync` to build · **Time:** ~1 min

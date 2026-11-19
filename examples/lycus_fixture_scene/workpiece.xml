@@ -1,0 +1,23 @@
+<mujoco>
+  <asset>
+    <mesh name="fixture_workpiece_mesh" file="fixture_assets/workpiece.obj"/>
+  </asset>
+  <worldbody>
+    <!-- This pose aligns the two mounting holes with the fixture's rear pins. -->
+    <body name="fixture_workpiece" pos="-.032875 .00045 .04903" axisangle="0 0 1 -1.570796326794897">
+      <freejoint/>
+      <inertial pos=".0005 -.001 -.029" mass="1" diaginertia=".0027 .0035 .0059"/>
+      <geom type="mesh" mesh="fixture_workpiece_mesh" contype="0" conaffinity="0" rgba=".76 .53 .24 1"/>
+      <geom group="3" type="box" pos=".0005 0 -.0155" size=".1015 .085 .0155"
+            contype="1" conaffinity="9" rgba=".76 .53 .24 .3"/>
+      <!-- Approximate the mating envelope, leaving the bottom of the shell open. -->
+      <geom name="fixture_workpiece_dock" group="3" type="box" pos="0 .0839 -.032"
+            size=".084 .002 .006" contype="1" conaffinity="9" rgba=".76 .53 .24 .3"
+            solref=".009 1"/>
+      <geom group="3" type="box" pos="-.083 .074 -.054905" size=".010 .008 .0025"
+            contype="1" conaffinity="9" rgba=".76 .53 .24 .3"/>
+      <geom group="3" type="box" pos=".083 .074 -.054905" size=".010 .008 .0025"
+            contype="1" conaffinity="9" rgba=".76 .53 .24 .3"/>
+    </body>
+  </worldbody>
+</mujoco>

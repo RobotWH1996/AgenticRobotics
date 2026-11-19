@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # cable_ur — locate a marker on a cable with a UR arm + ZED camera
 
 > **What:** Perception-only UR + ZED connector — motion structurally impossible (read-only RTDE) · **Needs:** `real` + ZED SDK + UR arm · **Time:** seconds · **Safety:** read [../../docs/safety.md](../../docs/safety.md) first

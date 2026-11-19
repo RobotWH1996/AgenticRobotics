@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # real_franka_pick_place — Jello boxes into the bucket, on a real Franka
 
 > **What:** Franka + Robotiq pick-place loop via the robots_realtime bridge · **Needs:** `real` + Franka/Robotiq/ZED · **Time:** s/cycle · **Safety:** read [../../docs/safety.md](../../docs/safety.md) first

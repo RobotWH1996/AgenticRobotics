@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # libero_quickstart — pick the soup can into the basket
 
 > **What:** The end-to-end hero: real vision → OBB grasp → transport, ground-truth verified · **Needs:** `quickstart` + GPU + LLM key · **Time:** ~25–55 s/trial

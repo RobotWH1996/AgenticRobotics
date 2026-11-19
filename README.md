@@ -1,5 +1,7 @@
 <div align="center">
 
+English | [中文](README.zh-CN.md)
+
 # Graph-as-Policy
 <h3 align="center">
   <strong>🧪 BETA CODE RELEASE</strong> | <em>Beta</em> | July 1, 2026
@@ -49,6 +51,23 @@ Skills live in the sibling
 [**open-robot-skills**](https://github.com/graph-robots/open-robot-skills)
 repo (Anthropic Agent Skills format, contributable) and are discovered
 by path — clone the two repos side by side and every command finds them.
+
+## AgenticRobotics checkout
+
+This repository keeps GaP and the bundled `open-robot-skills` registry in one
+checkout. The registry is discovered automatically. See
+[its upstream revision](open-robot-skills/UPSTREAM.md) and
+[the Lycus fixture example](examples/lycus_fixture_scene/README.md).
+
+```bash
+git clone --recurse-submodules https://github.com/RobotWH1996/AgenticRobotics.git
+cd AgenticRobotics
+uv sync --frozen
+uv run gap skills install --all
+```
+
+Configure model-service credentials and obtain the SAM3 checkpoint separately.
+The upstream notices and licenses apply to their respective code and assets.
 
 ## Quickstart
 

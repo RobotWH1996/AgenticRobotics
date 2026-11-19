@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # generate_a_graph — instruction → validated workflow
 
 > **What:** Instruction → validated workflow dir; CLI + Python, all providers · **Needs:** `uv sync` + LLM key · **Time:** minutes

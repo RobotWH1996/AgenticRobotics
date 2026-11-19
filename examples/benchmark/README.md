@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # benchmark — configs for `gap benchmark`
 
 > **What:** Grid harness configs: 1-cell smoke → posvar grid → the release gate · **Needs:** `grocery` (CUDA) + LLM key · **Time:** minutes → hours

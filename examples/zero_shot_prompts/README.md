@@ -1,3 +1,5 @@
+English | [中文](README.zh-CN.md)
+
 # zero_shot_prompts — the grocery_fulfillment zero-shot prompt matrix
 
 > **What:** the six zero-shot tester prompts, fed verbatim to

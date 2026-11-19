@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "meta": {
+    "name": "lycus_fixture_scene_check",
+    "description": "Reset the two-table scene and observe its initial state after one control step."
+  },
+  "nodes": {
+    "reset": {"type": "tool", "tool": "sim.reset"},
+    "step": {"type": "tool", "tool": "sim.step"},
+    "observe": {"type": "tool", "tool": "robot.get_observation"},
+    "done": {"type": "end", "status": "success"}
+  },
+  "edges": [["START", "reset"], ["reset", "step"], ["step", "observe"], ["observe", "done"]]
+}

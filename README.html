@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div align="center">
+<h1 id="graph-as-policy">Graph-as-Policy</h1>
+<h3 align="center">
+  <strong>🧪 BETA CODE RELEASE</strong> | <em>Beta</em> | July 1, 2026
+</h3>
+<p><strong>CoRL 2026</strong> · <a href="https://arxiv.org/abs/2607.05369">Paper (arXiv)</a> · <a href="https://graph-robots.github.io/gap/">Project page</a></p>
+<p>🆕 <strong>Nov 2026 — the self-learning pipeline is open source:</strong>
+<a href="https://github.com/graph-robots/agentic-self-learning"><strong>agentic-self-learning</strong></a>
+· <a href="https://arxiv.org/abs/2611.09030">Paper (arXiv)</a>
+· <a href="https://graph-robots.github.io/agentic-self-learning/">Project page</a></p>
+<p><strong>The graph is the policy.</strong>
+GaP targets <em>Variational Automation</em> — tasks a robot must perform persistently
+and reliably across many varying instances (objects vary in geometry and pose),
+not just solve once. It compiles a natural-language task into a typed, verified
+computation graph of modular skills, self-improves it in simulation, and runs
+the graph — not a black-box policy — on simulators and real robots.</p>
+<p><a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-green.svg" alt="License: Apache 2.0"></a>
+<a href="pyproject.toml"><img src="https://img.shields.io/badge/python-3.10+-blue.svg" alt="Python 3.10+"></a>
+<a href="https://github.com/graph-robots/open-robot-skills"><img src="https://img.shields.io/badge/skills-open--robot--skills-orange.svg" alt="Skills: open-robot-skills"></a>
+<a href="https://graph-robots.github.io/graph-as-policy/getting-started/quickstart.html"><img src="https://img.shields.io/badge/docs-quickstart-0f766e.svg" alt="Docs"></a></p>
+<p><img src="docs/assets/real_robots_strip.gif" alt="GaP on real robots — grocery packing, popcorn, tool packing, USB-C insertion"></p>
+<p><sub>GaP running on real robots — graphs generated from natural-language
+tasks, refined in sim, executed on hardware. Left→right: grocery packing
+(Franka, 10×), popcorn (long-horizon stove manipulation, 16×), tool &amp; charger
+packing into tagged bins, and USB-C insertion (UR5 with force feedback).</sub></p>
+</div>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> gap
+
+conn   = gap.connector.sim(<span class="hljs-string">&quot;libero&quot;</span>, task=<span class="hljs-string">&quot;libero_object/0&quot;</span>)
+result = gap.execute(<span class="hljs-string">&quot;examples/libero_quickstart/graph&quot;</span>, conn)
+graph  = gap.agent.generate_sync(<span class="hljs-string">&quot;pick the soup can and put it in the basket&quot;</span>)
+<span class="hljs-built_in">print</span>(graph)                  <span class="hljs-comment"># the policy, as a graph</span>
+gap.viz.serve(<span class="hljs-string">&quot;outputs&quot;</span>)      <span class="hljs-comment"># browse the recorded trial</span>
+</div></code></pre>
+<p>Skills live in the sibling
+<a href="https://github.com/graph-robots/open-robot-skills"><strong>open-robot-skills</strong></a>
+repo (Anthropic Agent Skills format, contributable) and are discovered
+by path — clone the two repos side by side and every command finds them.</p>
+<h2 id="quickstart">Quickstart</h2>
+<p><strong>Requirements:</strong> <strong>1× NVIDIA RTX 4090 (≥24 GB VRAM, Linux + EGL)</strong>, an
+LLM API key (OpenRouter / Vertex), and
+<a href="https://docs.astral.sh/uv/">uv</a>. First run downloads ~3.5 GB of model
+weights; the gated SAM3 weights are part of the default perception path,
+so in practice you also need <code>HF_TOKEN</code> (a free
+<a href="https://huggingface.co/settings/tokens">HuggingFace token</a> with SAM3
+access) before the first run.</p>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> --recurse-submodules https://github.com/graph-robots/graph-as-policy.git
+<span class="hljs-comment">#   ^ submodules are required (vendored sim stack) — if you already cloned</span>
+<span class="hljs-comment">#     plain, run: git submodule update --init --recursive</span>
+git <span class="hljs-built_in">clone</span> https://github.com/graph-robots/open-robot-skills.git    <span class="hljs-comment"># sibling, auto-discovered</span>
+<span class="hljs-built_in">cd</span> graph-as-policy
+uv <span class="hljs-built_in">sync</span>                                  <span class="hljs-comment"># engine + LIBERO sim (now baseline)</span>
+<span class="hljs-comment"># `uv sync --extra vertex` instead if you&#x27;ll use --provider vertex for codegen</span>
+uv run gap skills install --all          <span class="hljs-comment"># per-bundle venvs (sam3, cuRobo, vlm, …)</span>
+<span class="hljs-comment">#   --all includes the heavyweight learned-policy bundles; for one example,</span>
+<span class="hljs-comment">#   `gap skills install --workflow &lt;graph-dir&gt;` installs just what it uses</span>
+
+<span class="hljs-built_in">export</span> HF_TOKEN=...                      <span class="hljs-comment"># for the gated SAM3 weights</span>
+uv run gap skills check --download       <span class="hljs-comment"># weight prefetch (SAM3 + GDINO) + capability gate</span>
+
+<span class="hljs-comment"># Pick one LLM provider for codegen + the in-graph VLM. openrouter is the</span>
+<span class="hljs-comment"># default; for vertex, see `docs/source/authoring/llm-providers.md`.</span>
+<span class="hljs-built_in">export</span> OPENROUTER_API_KEY=...
+MUJOCO_GL=egl uv run gap run examples/libero_quickstart/graph \
+  --sim libero_object_all_variance/0
+uv run gap viz                           <span class="hljs-comment"># browse the trial at localhost:9432</span>
+</div></code></pre>
+<p>See the <strong><a href="https://graph-robots.github.io/graph-as-policy/getting-started/quickstart.html">15-minute tour</a></strong>
+for the full walkthrough (clone → run → generate → trace).</p>
+<h2 id="examples">Examples</h2>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="examples/libero_quickstart/">libero_quickstart</a></td>
+<td>Hero: vision → OBB grasp → transport, ground-truth verified</td>
+</tr>
+<tr>
+<td><a href="examples/grocery_packing/">grocery_packing</a></td>
+<td>Pack every item with a loop: a graph with a real backward edge</td>
+</tr>
+<tr>
+<td><a href="examples/generate_a_graph/">generate_a_graph</a></td>
+<td>Instruction → validated workflow dir; all LLM providers</td>
+</tr>
+<tr>
+<td><a href="examples/build_a_graph/">build_a_graph</a></td>
+<td>Full Python authoring with <code>gap.builder</code>: checkpoints, recovery</td>
+</tr>
+<tr>
+<td><a href="examples/agent_quickstart/">agent_quickstart</a></td>
+<td>Claude Code + one skill: sentence → graph → sim success</td>
+</tr>
+<tr>
+<td><a href="examples/grocery_fulfillment/">grocery_fulfillment</a></td>
+<td>Flagship acceptance family; graphs LLM-generated per task</td>
+</tr>
+<tr>
+<td><a href="examples/benchmark/">benchmark</a></td>
+<td>Grid harness: smoke → posvar → release gate</td>
+</tr>
+<tr>
+<td><a href="examples/steered_policy/">steered_policy</a></td>
+<td>Perceive + hover, then hand to a learned VLA policy</td>
+</tr>
+<tr>
+<td><a href="examples/collect_and_train/">collect_and_train</a></td>
+<td>Graph as scripted expert → dataset → train → policy node</td>
+</tr>
+<tr>
+<td><a href="examples/cable_ur/">cable_ur</a></td>
+<td>Real UR + ZED perception (motion-disabled)</td>
+</tr>
+<tr>
+<td><a href="examples/real_franka_pick_place/">real_franka_pick_place</a></td>
+<td>Real Franka pick-place via robots_realtime</td>
+</tr>
+</tbody>
+</table>
+<p>Full gallery with install needs and time estimates in
+<strong><a href="examples/README.md">examples/README.md</a></strong>. Real-robot examples
+— read <a href="docs/safety.md">docs/safety.md</a> first.</p>
+<h2 id="self-learning-pipeline">Self-learning pipeline</h2>
+<p>The loop that self-improves a graph in simulation is released as
+<strong><a href="https://github.com/graph-robots/agentic-self-learning">agentic-self-learning</a></strong>.
+A coding agent (Claude Code or Codex) writes a GaP <code>workflow.json</code> policy,
+runs it on <a href="https://github.com/robosimstudio/robosimstudio">RoboSimStudio</a>
+tasks, reads structured simulation feedback, and rewrites the graph. Every
+feedback condition from the study (state, relations, or visual feedback; how
+space is described; per-episode, per-motion, or per-node timing) is a config
+setting, and skills from
+<a href="https://github.com/graph-robots/open-robot-skills">open-robot-skills</a> plug in
+as the agent's skill library.</p>
+<p>It accompanies <em>A Controlled Study of Models, Skills, Feedback, and Curriculum
+in Agentic Robotics</em> (<a href="https://arxiv.org/abs/2611.09030">arXiv</a> ·
+<a href="https://graph-robots.github.io/agentic-self-learning/">project page</a>).</p>
+<h2 id="documentation">Documentation</h2>
+<p>Full docs site: <strong><a href="https://graph-robots.github.io/graph-as-policy/">https://graph-robots.github.io/graph-as-policy/</a></strong></p>
+<ul>
+<li><a href="https://graph-robots.github.io/graph-as-policy/getting-started/quickstart.html">Quickstart (15-min tour)</a> — clone → run → generate → trace</li>
+<li><a href="https://graph-robots.github.io/graph-as-policy/reference/workflow-schema.html">Runtime &amp; schema</a> — workflow JSON, executor semantics, checkpoints</li>
+<li><a href="https://graph-robots.github.io/graph-as-policy/skills/authoring-bundles.html">Skill authoring</a> — Agent Skills format, <code>gap.requires:</code> frontmatter</li>
+<li><a href="https://graph-robots.github.io/graph-as-policy/authoring/llm-providers.html">LLM providers</a> — openrouter / vertex</li>
+<li><a href="https://graph-robots.github.io/graph-as-policy/skills/registries.html">Skill registries</a> — <code>--skills</code>, <code>$GAP_SKILLS_PATH</code>, <code>gap registry …</code></li>
+<li><a href="https://graph-robots.github.io/graph-as-policy/reference/cli.html">CLI reference</a> — every <code>gap</code> verb</li>
+<li><a href="https://graph-robots.github.io/graph-as-policy/real-robots/safety.html">Safety</a> — required reading before any real-robot example</li>
+</ul>
+<h2 id="use-with-claude-code--ai-agents">Use with Claude Code &amp; AI agents</h2>
+<p>GaP ships an agent skill (<a href="agent/"><code>agent/</code></a>) that teaches AI coding
+agents the workflows above:</p>
+<pre class="hljs"><code><div>claude plugin marketplace add graph-robots/graph-as-policy
+claude plugin install gap@gap
+</div></code></pre>
+<p>Then ask: <em>&quot;what can this robot do right now?&quot;</em>, <em>&quot;run the quickstart graph
+in sim&quot;</em>, <em>&quot;generate a graph that packs the groceries&quot;</em>, <em>&quot;why did this
+trial fail?&quot;</em>. Real-robot commands are gated on explicit human
+confirmation. Other agents (Cursor, Codex, …) and the no-install path:
+<a href="agent/INSTALL.md">agent/INSTALL.md</a>.</p>
+<h2 id="citation">Citation</h2>
+<p>If you use GaP in your research, please cite our CoRL 2026 paper:</p>
+<pre class="hljs"><code><div>@inproceedings{chen2026gap,
+  title     = {GaP: A Graph-as-Policy Multi-Agent Self-Learning Harness
+               for Variational Automation (VA) Tasks},
+  author    = {Chen, Kaiyuan and Xie, Shuangyu and Fu, Letian and Yu, Justin and
+               Pacini, William and Bajamahal, Sandeep and Kim, Hudson and
+               Drake, Jaimyn and Kim, Daehwa and Xue, Haoru and Francis, Jonathan and
+               Juette, Christian and Schaldenbrand, Peter and Seker, Muhammet Yunus and
+               Wickramarachchi, Ruwan and Yoo, Uksang and Wang, Guanzhi and
+               Murali, Adithyavairavan and Sundaralingam, Balakumar and
+               Sastry, S. Shankar and Huang, Spencer and Zhu, Yuke and
+               Fan, Linxi and Goldberg, Ken},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2607.05369}
+}
+</div></code></pre>
+<p>If you use the self-learning pipeline
+(<a href="https://github.com/graph-robots/agentic-self-learning">agentic-self-learning</a>),
+please also cite:</p>
+<pre class="hljs"><code><div>@misc{chen2026controlled,
+  title         = {A Controlled Study of Models, Skills, Feedback, and Curriculum
+                   in Agentic Robotics},
+  author        = {Chen, Kaiyuan and Zhu, Xinyue and Xie, Shuangyu and Yoo, Uksang and
+                   Luong, Thi Thu Phuong and Gualtieri, Marcus and Juette, Christian and
+                   Ren, Liu and Huang, Spencer and Goldberg, Ken},
+  year          = {2026},
+  eprint        = {2611.09030},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  url           = {https://arxiv.org/abs/2611.09030}
+}
+</div></code></pre>
+<h2 id="license--attribution">License &amp; attribution</h2>
+<p>graph-as-policy and open-robot-skills are Apache-2.0-licensed; they stand on third-party
+work — LIBERO/LIBERO-PRO, Variational-Automation-Benchmark, robosuite,
+robots_realtime, pyroki, SAM3, Grounding DINO, and (optionally) NVIDIA
+cuRobo. Full attribution table: <strong><a href="NOTICE.md">NOTICE.md</a></strong>.</p>
+
+</body>
+</html>

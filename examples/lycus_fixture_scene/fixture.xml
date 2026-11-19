@@ -1,0 +1,83 @@
+<mujoco model="articulated_fixture">
+  <compiler angle="radian"/>
+  <option timestep="0.001" integrator="implicitfast"/>
+  <asset>
+    <mesh name="fixture_base_mesh" file="fixture_assets/base.obj"/>
+    <mesh name="fixture_handle_mesh" file="fixture_assets/handle.obj"/>
+    <mesh name="fixture_rod_mesh" file="fixture_assets/rod.obj"/>
+    <mesh name="fixture_carriage_mesh" file="fixture_assets/carriage.obj"/>
+  </asset>
+  <worldbody>
+    <body name="fixture_base">
+      <geom type="mesh" mesh="fixture_base_mesh" contype="0" conaffinity="0" rgba=".66 .71 .75 1"/>
+
+      <!-- Proxies leave the open space between the locating posts accessible. -->
+      <geom name="fixture_plate_collision" group="3" type="box" pos="0 0 -.029375" size=".190 .1303 .005"
+            contype="2" conaffinity="1" rgba=".66 .71 .75 .3"/>
+      <geom group="3" type="box" pos="-.119128 .1051 -.004375" size=".015 .0125 .020"
+            contype="2" conaffinity="1" rgba=".66 .71 .75 .3"/>
+      <geom group="3" type="box" pos=".0528 .1051 -.006875" size=".015 .0125 .0175"
+            contype="2" conaffinity="1" rgba=".66 .71 .75 .3"/>
+      <geom group="3" type="box" pos="-.119128 -.1049 -.006875" size=".015 .0125 .0175"
+            contype="2" conaffinity="1" rgba=".66 .71 .75 .3"/>
+      <geom group="3" type="box" pos=".0528 -.1049 -.004375" size=".015 .0125 .020"
+            contype="2" conaffinity="1" rgba=".66 .71 .75 .3"/>
+      <geom group="3" type="cylinder" pos="-.1315 .0603 -.017125" size=".014 .00875"
+            contype="2" conaffinity="1" rgba=".66 .71 .75 .3"/>
+      <geom group="3" type="cylinder" pos="-.1315 -.0747 -.017125" size=".014 .00875"
+            contype="2" conaffinity="1" rgba=".66 .71 .75 .3"/>
+      <geom group="3" type="cylinder" pos=".0655 .0153 -.015125" size=".014 .00925"
+            contype="2" conaffinity="1" rgba=".66 .71 .75 .3"/>
+
+      <body name="fixture_handle" pos="-.165001 .010305 -.0245">
+        <joint name="fixture_handle_hinge" type="hinge" axis="0 0 1" range="0 2.69"
+               solreflimit=".003 1" solimplimit=".98 .999 .001" damping=".08" frictionloss=".14" armature=".0001"/>
+        <inertial pos=".002 .027 .021" mass=".04" diaginertia=".000026 .000008 .000025"/>
+        <geom type="mesh" mesh="fixture_handle_mesh" contype="0" conaffinity="0" rgba=".85 .41 .14 1"/>
+        <geom name="fixture_grip_collision" type="cylinder" group="3" pos="-.00953019 .05791522 .0262"
+              size=".0064926 .013925" contype="2" conaffinity="1" rgba=".85 .41 .14 .3"
+              friction="1 .01 .001"/>
+        <geom name="fixture_handle_arm_collision" group="3" type="capsule"
+              fromto="0 0 .007 -.00953019 .05791522 .007" size=".005"
+              contype="2" conaffinity="1" rgba=".85 .41 .14 .3"/>
+        <site name="fixture_handle_grasp" pos="-.00953019 .05791522 .032" size=".002" rgba="1 .7 .2 1"/>
+        <body name="fixture_rod" pos=".011301 .009183 .0091">
+          <joint name="fixture_rod_hinge" type="hinge" axis="0 0 1" damping=".008"/>
+          <inertial pos=".0948875 -.0045955 .006025" mass=".06"
+                    diaginertia=".000008 .00019 .00019"/>
+          <geom type="mesh" mesh="fixture_rod_mesh" contype="0" conaffinity="0" rgba=".18 .43 .73 1"/>
+          <geom group="3" type="capsule" fromto="0 0 .006025 .189775 -.009191 .006025" size=".006"
+                contype="2" conaffinity="1" rgba=".18 .43 .73 .3"/>
+          <site name="fixture_rod_end" pos=".189775 -.009191 0" size=".0015" rgba=".18 .43 .73 1"/>
+        </body>
+      </body>
+
+      <body name="fixture_carriage" pos=".036075 .010297 -.0154">
+        <joint name="fixture_carriage_slide" type="slide" axis="1 0 0" damping="4" frictionloss=".7"/>
+        <inertial pos=".075 0 .015" mass=".46" diaginertia=".0011 .00064 .0012"/>
+        <geom type="mesh" mesh="fixture_carriage_mesh" contype="0" conaffinity="0" rgba=".30 .56 .50 1"/>
+        <geom group="3" type="box" pos=".0045 0 -.002" size=".011 .077 .004"
+              contype="2" conaffinity="1" rgba=".30 .56 .50 .3"/>
+        <geom group="3" type="box" pos=".05 .071 -.002" size=".04 .009 .004"
+              contype="2" conaffinity="1" rgba=".30 .56 .50 .3"/>
+        <geom group="3" type="box" pos=".05 -.071 -.002" size=".04 .009 .004"
+              contype="2" conaffinity="1" rgba=".30 .56 .50 .3"/>
+        <geom group="3" type="box" pos=".0925 0 .022" size=".005 .080 .029"
+              contype="2" conaffinity="1" rgba=".30 .56 .50 .3"/>
+        <geom name="fixture_press_near" group="3" type="box" pos=".0645 -.057 .033" size=".023 .013 .015"
+              contype="2" conaffinity="1" rgba=".30 .56 .50 .3"/>
+        <geom name="fixture_press_far" group="3" type="box" pos=".0645 .039 .033" size=".023 .014 .015"
+              contype="2" conaffinity="1" rgba=".30 .56 .50 .3"/>
+        <geom group="3" type="box" pos=".0645 .067 .033" size=".023 .013 .015"
+              contype="2" conaffinity="1" rgba=".30 .56 .50 .3"/>
+        <geom group="3" type="box" pos=".07125 -.029 .033" size=".01625 .013 .015"
+              contype="2" conaffinity="1" rgba=".30 .56 .50 .3"/>
+        <site name="fixture_carriage_pin" size=".0015" rgba=".30 .56 .50 1"/>
+      </body>
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="fixture_linkage_closure" site1="fixture_rod_end" site2="fixture_carriage_pin"
+             solref=".004 1" solimp=".98 .995 .001"/>
+  </equality>
+</mujoco>

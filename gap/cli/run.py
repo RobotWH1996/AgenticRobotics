@@ -16,7 +16,7 @@ def register(subparsers: argparse._SubParsersAction) -> None:
     )
     sp.add_argument(
         "--sim", default=None, metavar="SUITE/TASK",
-        help="Run against a sim connector, e.g. libero_object/0 "
+        help="Run against a sim connector, e.g. libero_object/0 or lycus_fixture/0 "
              "(default: tools-only, no robot)",
     )
     sp.add_argument(
@@ -178,9 +178,9 @@ def _handle(args: argparse.Namespace) -> int:
     if args.sim:
         import gap.connector
 
-        connector = gap.connector.sim(
-            "libero", task=args.sim, record_video=record_video,
-        )
+        suite = args.sim.split("/", 1)[0]
+        backend = "lycus_fixture" if suite == "lycus_fixture" else "libero"
+        connector = gap.connector.sim(backend, task=args.sim, record_video=record_video)
         if record_video:
             # Capture only arms itself on reset(); execute() runs on the
             # already-reset env, so start the frame buffer explicitly.

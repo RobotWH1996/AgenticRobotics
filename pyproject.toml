@@ -167,7 +167,7 @@ members = ["gap-core"]
 [tool.uv.sources]
 libero = { path = "third_party/Variational-Automation-Benchmark", editable = true }
 robosuite = { path = "third_party/robosuite", editable = true }
-open-robot-skills = { path = "../open-robot-skills", editable = true }
+open-robot-skills = { path = "open-robot-skills", editable = true }
 graph-as-policy-core = { workspace = true }
 
 [tool.uv]

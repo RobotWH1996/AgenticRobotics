@@ -131,6 +131,9 @@ class LlmConfig:
     """Disk response cache directory. ``None`` falls back to the
     ``GAP_LLM_CACHE_DIR`` env var; unset means caching is disabled."""
 
+    thinking: bool | None = None
+    """Thinking mode for compatible endpoints. ``None`` uses the server default."""
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -228,6 +231,8 @@ def _cache_key(config: LlmConfig, system: str, messages: list[dict]) -> str:
     h.update(config.provider.encode())
     h.update(_resolve_model(config).encode())
     h.update(repr((config.temperature, config.max_tokens)).encode())
+    if config.thinking is not None:
+        h.update(repr(config.thinking).encode())
     h.update(system.encode())
     for m in messages:
         h.update(str(m.get("role", "")).encode())
@@ -340,6 +345,8 @@ def _openai_request_body(
     }
     if config.temperature is not None:
         body["temperature"] = config.temperature
+    if config.thinking is not None:
+        body["thinking"] = {"type": "enabled" if config.thinking else "disabled"}
     if tools:
         body["tools"] = [_to_openai_tool(t) for t in tools]
     return body

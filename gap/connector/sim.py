@@ -50,10 +50,12 @@ class SimConnector(Connector):
         record_video: bool = False,
         seed: int | None = None,
     ) -> None:
+        if ik is None:
+            ik = getattr(env, "ik_backend", None)
         super().__init__(env, config, camera_names=camera_names, ik=ik)
         self._record_video = bool(record_video)
         self._pending_seed = seed
-        self._world_adapter: Any | None = None
+        self._world_adapter: Any | None = getattr(env, "world_adapter", None)
 
     # ------------------------------------------------------------------
     # Capabilities

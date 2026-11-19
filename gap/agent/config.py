@@ -188,6 +188,7 @@ class PipelineConfig:
                 "max_concurrent_requests", LlmConfig.max_concurrent_requests,
             ),
             cache_dir=llm_raw.get("cache_dir"),
+            thinking=llm_raw.get("thinking"),
         )
 
         # Environment config

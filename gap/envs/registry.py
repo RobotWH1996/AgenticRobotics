@@ -129,6 +129,8 @@ def registered_envs() -> dict[str, str]:
 
 _LIBERO_FACTORY = "gap.envs.libero_env:make_env"
 
+register_env("lycus_fixture", "gap.envs.lycus_fixture_env:make_env")
+
 # Default: any libero* suite name routes to the libero factory; the loader
 # then decides per suite between the vab task-dir format and the LIBERO-PRO
 # benchmark registry (see gap.envs.loader.load_libero_task).
